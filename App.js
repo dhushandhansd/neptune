@@ -5,17 +5,24 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Browser from './components/Browser/index';
 import Home from './components/Home/index';
+import History from './components/History/index';
 
-const AppNavigator = createStackNavigator ({
-  Home : {
+const AppNavigator = createStackNavigator (
+  {
+    Home : {
       screen : Home
+    },
+    Browser : {
+      screen : Browser
+    },
+    History : {
+      screen : History
+    },
   },
-  Browser : {
-    screen : Browser
-  },
-  },{
+  {
       headerMode : 'none'
-  },{
+  },
+  {
       initialRouteName : 'Home'
   }
 );

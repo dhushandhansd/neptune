@@ -103,7 +103,10 @@ const Home = ({navigation}) => {
               size = {32}
               color = '#609CFF' />
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.bookmark}>
+        <TouchableOpacity 
+          style = {styles.bookmark}
+          onPress = {() => {navigation.navigate('History')}}
+        >
           <Feather 
               name = 'book-open'
               size = {22}
