@@ -13,8 +13,11 @@ const Browser = ({navigation}) => {
   Browser.navigationOptions = ({
     title : 'Browser',
   })
-
+  var cookie = '';
   const [visible, setVisible] = useState(false);
+  const [queryDone, setQueryDone] = useState(navigation.getParam('query'));
+  const [key, setKey] = useState(0);
+
 
   const LoadingView = () => {
     return (
@@ -29,24 +32,49 @@ const Browser = ({navigation}) => {
     );
   }
 
+
   return (
     <View style = {styles.mainContainer}>
       <View style = {styles.addressBar}>
+        <TouchableOpacity 
+          style = {styles.refreshIcon}
+          onPress = { () => setKey(key+1)}
+        >
+          <Ionicons
+            name = 'ios-refresh'
+            size = {25}
+            color = '#a9a5a6'
+          />
+        </TouchableOpacity>
         <TextInput
-          style = {styles.searchBar}
+          nativeID = 'inputAddress'
+          style = {styles.searchBarBrowser}
           placeholder = 'Search or enter website name'
           autoCapitalize = 'none'
-          defaultValue = {navigation.getParam('query')}
+          onChangeText = {(data) => setUrl(data)}
+          onSubmitEditing = {() => {setQueryDone(url)}}
+          defaultValue = {queryDone}
         />
+        <TouchableOpacity 
+          style = {styles.searchIcon}>
+          <Ionicons
+            name = 'ios-search-outline'
+            size = {25}
+            color = '#a9a5a6'
+          />
+        </TouchableOpacity>
+        
       </View>
 
       <WebView
-        source = {{uri : 'https://www.duckduckgo.com/?q=' + (navigation.getParam('query')).split(' ').join('+') + '&atb=v1-1&ia=web'}}
+        source = {{uri : queryDone}}
         style = {styles.webContainer}
         javaScriptEnabled = {true}
         domStorageEnabled = {true}
         renderLoading = {LoadingView}
         startInLoadingState = {true}
+        injectedJavaScript = {cookie}
+        key = {key}
       />
       {visible ? <LoadingView/> : null}
 
@@ -87,7 +115,7 @@ const Browser = ({navigation}) => {
       </View>
       <StatusBar 
         barStyle = 'light-content'
-        backgroundColor = '#fff'/>
+        backgroundColor = '#dad8db'/>
     </View>
   )
 

@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React, {useState, useEffect} from 'react';
-import {Text, Image, TouchableOpacity, View, TextInput} from 'react-native';
+import React, {useState} from 'react';
+import {Text, Image, TouchableOpacity, View, TextInput, ScrollView} from 'react-native';
 import styles from './styles';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Feather from 'react-native-vector-icons/Feather';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import WebView from 'react-native-webview';
+
 
 const Home = ({navigation}) => {
 
@@ -15,7 +15,8 @@ const Home = ({navigation}) => {
   });
 
   const queryPasser = (data) => {
-    navigation.navigate('Browser', {query : data})
+    var finalQuery = 'https://www.duckduckgo.com/?q=' + data.replace(' ', '+');
+    navigation.navigate('Browser', {query : finalQuery})
   }
 
   const [url, setUrl] = useState('www.duckduckgo.com');
@@ -27,8 +28,9 @@ const Home = ({navigation}) => {
         <TextInput
           style = {styles.searchBar}
           placeholder = {'Search or enter website name'}
+          defaultValue = ''
           autoCapitalize = 'none'
-          onChangeText = {data => setUrl(data)}
+          onChangeText = {data => setUrl(data.toLowerCase())}
           onSubmitEditing = {() => queryPasser(url)}
         />
 
@@ -38,7 +40,46 @@ const Home = ({navigation}) => {
         <Text style = {styles.title}>
           Favorites
         </Text>
+        <View style = {styles.favItemBox}>
+          <View elevation={6} style = {styles.favIconOutline}>
+            <View style = {styles.favIconContainer}>
+              <TouchableOpacity onPress = {() => {navigation.navigate('Browser', {query : 'https://www.apple.com'})}}>
+                <Image style= {styles.favIcon} source = {require('../../assets/icons/apple.png')}/>
+              </TouchableOpacity>
+            </View>
+              <Text style = {styles.favIconTitle}>Apple</Text>
+          </View> 
+
+          <View elevation={6} style = {styles.favIconOutline}>
+            <View style = {styles.favIconContainer}>
+              <TouchableOpacity onPress = {() => {navigation.navigate('Browser', {query : 'https://www.google.com'})}}>
+                <Image style= {styles.favIcon} source = {require('../../assets/icons/google.png')}/>
+              </TouchableOpacity>
+            </View>
+              <Text style = {styles.favIconTitle}>Google</Text>
+          </View> 
+
+          <View elevation={6} style = {styles.favIconOutline}>
+            <View style = {styles.favIconContainer}>
+              <TouchableOpacity onPress = {() => {navigation.navigate('Browser', {query : 'https://www.amazon.com'})}}>
+                <Image style= {styles.favIconDiff} source = {require('../../assets/icons/amazon.png')}/>
+              </TouchableOpacity>
+            </View>
+            <Text style = {styles.favIconTitle}>Amazon</Text>
+          </View> 
+
+          <View elevation={6} style = {styles.favIconOutline}>
+            <View style = {styles.favIconContainer}>
+              <TouchableOpacity onPress = {() => {navigation.navigate('Browser', {query : 'https://www.wikipedia.org'})}}>
+                <Image style= {styles.favIconDiff} source = {require('../../assets/icons/wiki.png')}/>
+              </TouchableOpacity>
+            </View>
+            <Text style = {styles.favIconTitle}>Wikipedia</Text>
+          </View>
+        </View>
+
       </View>
+
 
       <View 
         style = {styles.bottomBar}>
@@ -80,7 +121,7 @@ const Home = ({navigation}) => {
       </View>
       <StatusBar 
         barStyle = 'light-content'
-        backgroundColor = '#fff'/>
+        backgroundColor = '#dad8db'/>
     </View>
   )
 
