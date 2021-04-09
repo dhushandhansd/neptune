@@ -6,6 +6,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Browser from './components/Browser/index';
 import Home from './components/Home/index';
 import Gear from './components/Gear/index';
+import Browsing from './components/Browsing/index';
 
 const AppNavigator = createStackNavigator (
   {
@@ -17,6 +18,9 @@ const AppNavigator = createStackNavigator (
     },
     Gear : {
       screen : Gear
+    },
+    Browsing : {
+      screen : Browsing
     },
   },
   {

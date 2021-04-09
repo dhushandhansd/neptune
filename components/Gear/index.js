@@ -78,6 +78,7 @@ const Gear = ({navigation}) => {
                   <TouchableOpacity>
                     <Text style = {{fontSize : 20}}>Search Engine</Text>
                   </TouchableOpacity>
+                  <Text style = {styles.toggleButtonTitle}>DuckDuckGo</Text>
                 </View>
                 <View style = {styles.searchContent}>
                   <Text style = {{fontSize : 20}}>Search Engine Suggestions</Text>
@@ -157,7 +158,7 @@ const Gear = ({navigation}) => {
                 </View>
                 <View style = {styles.searchContent}>
                     <TouchableOpacity 
-                      onPress = {() => navigation.navigate('History')}
+                      onPress = {() => navigation.navigate('Browsing')}
                     >
                       <Text style = {{fontSize : 20}}>Clear History and Browsing Data</Text>
                     </TouchableOpacity>
@@ -172,6 +173,7 @@ const Gear = ({navigation}) => {
         style = {styles.bottomBar}>
         <TouchableOpacity 
           style = {styles.leftArrow}
+          onPress = {() => navigation.goBack()}
         >
           <Entypo 
             name = 'chevron-thin-left'
@@ -188,7 +190,7 @@ const Gear = ({navigation}) => {
           <EvilIcons 
             name = 'share-apple'
             size = {32}
-            color = '#609CFF' />
+            color = '#dad8db' />
         </TouchableOpacity>
         <TouchableOpacity 
           style = {styles.tabs}
@@ -200,18 +202,17 @@ const Gear = ({navigation}) => {
               color = '#609CFF' />
         </TouchableOpacity>
         <TouchableOpacity 
-          style = {styles.settings}
-          onPress = {() => {navigation.navigate('History')}}
-        >
-          <Ionicons
-              name = 'ios-settings-outline'
-              size = {23}
-              color = '#609CFF' />
+            style = {styles.settings}
+            onPress = {() => {console.log('Already in the Page')}}
+          >
+            <Ionicons
+                name = 'ios-settings-outline'
+                size = {23}
+                color = '#609CFF' />
         </TouchableOpacity>
       </View>
       <StatusBar 
         barStyle = 'light-content'
-        // backgroundColor = '#dad8db'
         backgroundColor = '#f9f9fa'/>
     </View>
 

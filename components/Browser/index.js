@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import {Text, View, TouchableOpacity, TextInput, ActivityIndicator} from 'react-native';
+import {Text, View, TouchableOpacity, TextInput, ActivityIndicator, Share} from 'react-native';
 import styles from '../Home/styles';
 import Entypo from 'react-native-vector-icons/Entypo';
-import Feather from 'react-native-vector-icons/Feather';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import WebView from 'react-native-webview';
@@ -30,6 +29,12 @@ const Browser = ({navigation}) => {
         />
       </View>
     );
+  }
+
+  const shareMessage = () => {
+    Share.share({
+      message : queryDone,
+    }). then ((result) => console.log(result)).catch ((err) => console.log(err));
   }
 
 
@@ -98,7 +103,10 @@ const Browser = ({navigation}) => {
               size = {22}
               color = '#609CFF' />
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.share}>
+        <TouchableOpacity 
+          style = {styles.share}
+          onPress = {() => shareMessage() }  
+        >
           <EvilIcons 
               name = 'share-apple'
               size = {32}

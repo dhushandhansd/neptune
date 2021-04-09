@@ -93,9 +93,16 @@ const styles = StyleSheet.create({
     width : 50,
   },
   toggleButton : {
+    color : '#c1bfc2',
     position : 'absolute',
     right : 20,
     top : 12,
+  },
+  toggleButtonTitle : {
+    color : '#c1bfc2',
+    position : 'absolute',
+    right : 20,
+    top : 17,
   },
   toggleText : {
     fontSize : 20,
@@ -141,6 +148,34 @@ const styles = StyleSheet.create({
     fontSize : 20,
     marginTop : '10%',
     marginLeft : '7%',
+  },
+  listItemContainer : {
+    alignItems : 'center',
+    borderBottomColor : '#28282B',
+    borderBottomWidth : .5,
+  },
+  listTitle : {
+    padding : 12,
+    fontSize : 20,
+  },
+  listContainer : {
+    width : '100%',
+    height : '100%',
+    flex : 1,
+    justifyContent : 'center',
+    alignItems : 'center',
+    backgroundColor : '#f3f2f8',
+    flexDirection : 'row',
+  },
+  clearButton : {
+    height : 60,
+    width : '90%',
+    justifyContent : 'center',
+    alignItems : 'center',
+    marginTop : '5%',
+    marginLeft : '5%',
+    borderRadius : 5,
+    backgroundColor : '#ba1030',
   },
 })
 

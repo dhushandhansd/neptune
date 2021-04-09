@@ -10,14 +10,12 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Home = ({navigation}) => {
 
-  const browsingHitory = [];
 
   Home.navigationOptions = ({
     title : 'Home',
   });
 
   const queryPasser = (data) => {
-    browsingHitory.push(data);
     var finalQuery = 'https://www.duckduckgo.com/?q=' + data.replace(' ', '+');
     navigation.navigate('Browser', {query : finalQuery})
   }
@@ -96,23 +94,23 @@ const Home = ({navigation}) => {
           <Entypo 
               name = 'chevron-thin-left'
               size = {22}
-              color = '#609CFF' />
+              color = '#dad8db' />
         </TouchableOpacity>
         <TouchableOpacity style = {styles.rightArrow}>
           <Entypo 
               name = 'chevron-thin-right'
               size = {22}
-              color = '#609CFF' />
+              color = '#dad8db' />
         </TouchableOpacity>
         <TouchableOpacity style = {styles.share}>
           <EvilIcons 
               name = 'share-apple'
               size = {32}
-              color = '#609CFF' />
+              color = '#dad8db' />
         </TouchableOpacity>
         <TouchableOpacity 
           style = {styles.tabs}
-          onPress = {() => {navigation.navigate('Browser')}}
+          // onPress = {() => {navigation.navigate('Browser')}}
         >
           <Ionicons
               name = 'ios-copy-outline'
