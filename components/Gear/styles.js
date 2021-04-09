@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
   addressBar : {
     width : '100%',
     height : 68,
-    backgroundColor : '#dad8db',
+    // backgroundColor : '#dad8db',
+    backgroundColor : '#f9f9fa',
     borderBottomColor : '#c1bfc2',
     borderBottomWidth : 1,
     flexDirection : 'row',
@@ -22,24 +23,25 @@ const styles = StyleSheet.create({
     flexDirection : 'row',
   },
   backButton : {
-    marginLeft : '2%',
-    marginTop : '25%',
+    marginLeft : '5%',
+    marginTop : '30%',
   },
   backTitle : {
     marginLeft : '2%',
-    marginTop : '23%',
+    marginTop : '28%',
     fontSize : 18,
     color : '#609CFF',
   },
   titleContainer : {
+    width : '45%',
     marginLeft : '7%',
     color : '#609CFF',
   },
   pageTitle : {
-    marginTop : '8%',
-    marginLeft : '5%',
+    textAlign : 'center',
+    marginTop : '10%',
     fontSize : 22,
-    color : '#609CFF',
+    color : '#000000',
   },
   searchBar : {
     width : "90%",
@@ -55,6 +57,50 @@ const styles = StyleSheet.create({
     borderColor : '#c1bfc2',
     borderWidth : .5,
   },
+  middleContainer : {
+    width : '100%',
+    height : '100%',
+    backgroundColor : '#f3f2f8',
+  },
+  searchContainer : {
+    width : '100%',
+    marginTop : '5%',
+    // backgroundColor : '#fff',
+  },
+  contentContainer : {
+    marginTop : '5%',
+  },
+  searchTitle : {
+    fontSize : 12,
+    color : '#c1bfc2',
+    marginLeft : '5%',
+  },
+  searchContent : {
+    padding : '3%',
+    paddingLeft : '5%',
+    backgroundColor : '#fff',
+    borderBottomWidth : 1,
+    flexDirection : 'row',
+    borderBottomColor : '#c1bfc2',
+  },
+  contentTitle : {
+    marginLeft : '2%',
+  },
+  toogleSwitch : {
+    position : 'absolute',
+    right : 5,
+    top : 15,
+    width : 50,
+  },
+  toggleButton : {
+    position : 'absolute',
+    right : 20,
+    top : 12,
+  },
+  toggleText : {
+    fontSize : 20,
+    // color : '#c1bfc2',
+  },
   blurView : {
     width:'100%',
     height : '30%',
@@ -62,7 +108,8 @@ const styles = StyleSheet.create({
   bottomBar : {
     width : '100%',
     height : '6%',
-    backgroundColor : '#dad8db',
+    // backgroundColor : '#dad8db',
+    backgroundColor : '#f9f9fa',
     position : 'absolute',
     bottom : 28,
     opacity : 20,
@@ -82,13 +129,13 @@ const styles = StyleSheet.create({
     position : 'absolute',
     left : "45%",
   },
-  bookmark : {
+  tabs : {
     position : 'absolute',
     right : "26%",
   },
-  tabs : {
+  settings : {
     position : 'absolute',
-    right : "7%",
+    right : '7%',
   },
   title : {
     fontSize : 20,

@@ -5,7 +5,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Browser from './components/Browser/index';
 import Home from './components/Home/index';
-import History from './components/History/index';
+import Gear from './components/Gear/index';
 
 const AppNavigator = createStackNavigator (
   {
@@ -15,8 +15,8 @@ const AppNavigator = createStackNavigator (
     Browser : {
       screen : Browser
     },
-    History : {
-      screen : History
+    Gear : {
+      screen : Gear
     },
   },
   {

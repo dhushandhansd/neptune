@@ -35,7 +35,9 @@ const Browser = ({navigation}) => {
 
   return (
     <View style = {styles.mainContainer}>
-      <View style = {styles.addressBar}>
+      <View 
+        elevation={10}
+        style = {styles.addressBar}>
         <TouchableOpacity 
           style = {styles.refreshIcon}
           onPress = { () => setKey(key+1)}
@@ -79,7 +81,9 @@ const Browser = ({navigation}) => {
       {visible ? <LoadingView/> : null}
 
       <View 
-        style = {styles.bottomBar}>
+        elevation={10}
+        style = {styles.bottomBar}
+        >
         <TouchableOpacity 
           style = {styles.leftArrow}
           onPress = {() => navigation.goBack()}>
@@ -100,22 +104,28 @@ const Browser = ({navigation}) => {
               size = {32}
               color = '#609CFF' />
         </TouchableOpacity>
-        <TouchableOpacity style = {styles.bookmark}>
-          <Feather 
-              name = 'book-open'
-              size = {22}
-              color = '#609CFF' />
-        </TouchableOpacity>
-        <TouchableOpacity style = {styles.tabs}>
+        <TouchableOpacity 
+          style = {styles.tabs}
+          onPress = {() => {navigation.navigate('Browser')}}
+        >
           <Ionicons
               name = 'ios-copy-outline'
+              size = {23}
+              color = '#609CFF' />
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style = {styles.settings}
+          onPress = {() => {navigation.navigate('Gear')}}
+        >
+          <Ionicons
+              name = 'ios-settings-outline'
               size = {23}
               color = '#609CFF' />
         </TouchableOpacity>
       </View>
       <StatusBar 
         barStyle = 'light-content'
-        backgroundColor = '#dad8db'/>
+        backgroundColor = '#f9f9fa'/>
     </View>
   )
 

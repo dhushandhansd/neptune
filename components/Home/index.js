@@ -10,11 +10,14 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Home = ({navigation}) => {
 
+  const browsingHitory = [];
+
   Home.navigationOptions = ({
     title : 'Home',
   });
 
   const queryPasser = (data) => {
+    browsingHitory.push(data);
     var finalQuery = 'https://www.duckduckgo.com/?q=' + data.replace(' ', '+');
     navigation.navigate('Browser', {query : finalQuery})
   }
@@ -22,8 +25,11 @@ const Home = ({navigation}) => {
   const [url, setUrl] = useState('www.duckduckgo.com');
 
   return (
-    <View style = {styles.mainContainer}>
-      <View style = {styles.addressBar}>
+    <View 
+      style = {styles.mainContainer}>
+      <View 
+        elevation={10}
+        style = {styles.addressBar}>
 
         <TextInput
           style = {styles.searchBar}
@@ -82,6 +88,7 @@ const Home = ({navigation}) => {
 
 
       <View 
+        elevation={10}
         style = {styles.bottomBar}>
         <TouchableOpacity 
           style = {styles.leftArrow}
@@ -104,15 +111,6 @@ const Home = ({navigation}) => {
               color = '#609CFF' />
         </TouchableOpacity>
         <TouchableOpacity 
-          style = {styles.bookmark}
-          onPress = {() => {navigation.navigate('History')}}
-        >
-          <Feather 
-              name = 'book-open'
-              size = {22}
-              color = '#609CFF' />
-        </TouchableOpacity>
-        <TouchableOpacity 
           style = {styles.tabs}
           onPress = {() => {navigation.navigate('Browser')}}
         >
@@ -121,10 +119,19 @@ const Home = ({navigation}) => {
               size = {23}
               color = '#609CFF' />
         </TouchableOpacity>
+        <TouchableOpacity 
+          style = {styles.settings}
+          onPress = {() => {navigation.navigate('Gear')}}
+        >
+          <Ionicons
+              name = 'ios-settings-outline'
+              size = {23}
+              color = '#609CFF' />
+        </TouchableOpacity>
       </View>
       <StatusBar 
         barStyle = 'light-content'
-        backgroundColor = '#dad8db'/>
+        backgroundColor = '#f9f9fa'/>
     </View>
   )
 
